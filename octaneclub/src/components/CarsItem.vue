@@ -1,7 +1,7 @@
 <template>
   <div>
-       <input type="checkbox" :id="id" :checked="isDone" />
-    <label for="cars-item">{{ label }}</label>
+    <input type="checkbox" :id="id" :checked="isDone" />
+    <label :for="id">{{ label }}</label>
   </div>
 </template>
 
@@ -17,12 +17,11 @@ export default {
   data() {
     return {
       isDone: this.done,
-      id: uniqueId("cars-"),
+      uniqueId: uniqueId("cars-"),
     };
   },
 };
 </script>
 
 <style scoped>
-
 </style>

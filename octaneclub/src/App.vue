@@ -1,6 +1,7 @@
 <template>
 <div id="app">
   <h1> Cars </h1>
+  <post-form @newpost-added="addNewPost"></post-form>
   <ul>
     <li v-for="item in CarsItems" :key="item.id">
       <cars-item 
@@ -15,11 +16,14 @@
 
 <script>
 import uniqueId from "lodash.uniqueid";
+import PostForm from "./components/NewPost.vue";
 import CarsItem from "./components/CarsItem.vue";
+
+
 export default {
   name: "app",
   components: {
-    CarsItem,
+    CarsItem, PostForm,
   },
     data() {
     return {
@@ -35,7 +39,14 @@ export default {
       ],
     };
     },
+  
+methods: {
+  addNewPost(newPostLabel) {
+  this.CarsItems.push({id:uniqueId('newpost-'), label: newPostLabel, done: false});
+},
+},
 };
+
 
 
 </script>
