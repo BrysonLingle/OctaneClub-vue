@@ -28,14 +28,10 @@ export default {
     data() {
     return {
       CarsItems: [
-   { id: uniqueId("cars-"), label: "Learn Vue", done: false },
-        {
-          id: uniqueId("cars-"),
-          label: "Create a Vue project with the CLI",
-          done: false,
-        },
-        { id: uniqueId("cars-"), label: "Have fun", done: false },
-        { id: uniqueId("cars-"), label: "Create a to-do list", done: false}
+        { id: uniqueId("cars-"), label: "Learn Vue", done: false },
+        {id: uniqueId("cars-"), label: "Complete Project", done: false },
+        { id: uniqueId("cars-"), label: "Graduate", done: false },
+        { id: uniqueId("cars-"), label: "Get a Job", done: false}
       ],
     };
     },
