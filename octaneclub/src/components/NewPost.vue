@@ -34,7 +34,7 @@ export default {
       axios
         .get('https://api.unsplash.com/search/photos', {
           params: {
-            query: 'cars',
+            query: 'focus st',
           },
         })
         .then(res => {

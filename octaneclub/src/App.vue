@@ -1,24 +1,27 @@
 <template>
-  <div id="app" >
-    <h1>Cars</h1>
-    <post-form @newpost-added="addNewPost"></post-form>
+  <div id="app">
+    <div class="content">
+      <h1>Cars</h1>
+      <post-form @newpost-added="addNewPost"></post-form>
+    </div>
+    <button @click="toggleDark" class="toggleMode">
+      Toggle Color Mode
+    </button>
   </div>
-  <button @click="toggleDark"
-  class="toggleMode">
-    Toggle Color Mode
-  </button>
-  <!-- <p>isDark: {{ isDark }}</p> -->
+  <Footer></Footer> 
 </template>
 
 <script>
 import uniqueId from "lodash.uniqueid";
 import PostForm from "./components/NewPost.vue";
 import { useDark } from '@vueuse/core'
+import Footer from "./components/Footer.vue"; 
 
 export default {
   name: "app",
   components: {
     PostForm,
+    Footer, 
   },
   data() {
     return {
@@ -40,6 +43,8 @@ export default {
 };
 </script>
 
+
+
 <style>
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
@@ -48,6 +53,7 @@ export default {
   text-align: center;
   color: #ffffff;
   margin-top: 60px;
+  
  
 }
 
@@ -66,9 +72,11 @@ body.light {
   background-position: center center;
   background-attachment: fixed;
 }
-.toggleMode {
-  
-
+#app.light{
+  background-color: #ffffff;
+}
+#app.dark {
+  background-color: grey;
 }
 
 
@@ -120,7 +128,7 @@ body.light {
   }
   
   #app {
-    background: #404040;
+    background:  #404040;
     margin: 2rem 0 4rem 0;
     padding: 1rem;
     padding-top: 0;
