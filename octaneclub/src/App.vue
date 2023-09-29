@@ -2,15 +2,18 @@
 <div id="app">
   <h1> Cars </h1>
   <post-form @newpost-added="addNewPost"></post-form>
-  <ul aria-labelledby="list-summary" class="stack-large">
     <li v-for="item in CarsItems" :key="item.id">
       <cars-item 
       :label="item.label" 
       :done="item.done"
       :id="item.id"></cars-item>
     </li>
-  </ul>
 </div>
+<p>Dark theme: {{isDark}}</p>
+
+<button @click="toggleDark()">
+  Toggle Color Mode
+</button>
 
 </template>
 
@@ -23,28 +26,23 @@ import CarsItem from "./components/CarsItem.vue";
 export default {
   name: "app",
   components: {
-    CarsItem, PostForm,
+    CarsItem,
+    PostForm,
   },
-    data() {
+  data() {
     return {
-      CarsItems: [
-        { id: uniqueId("cars-"), label: "Learn Vue", done: false },
-        {id: uniqueId("cars-"), label: "Complete Project", done: false },
-        { id: uniqueId("cars-"), label: "Graduate", done: false },
-        { id: uniqueId("cars-"), label: "Get a Job", done: false}
-      ],
+      CarsItems: [],
     };
+  },
+  methods: {
+    addNewPost(newPostLabel) {
+      this.CarsItems.push({ id: uniqueId("newpost-"), label: newPostLabel, done: false, comment: "" });
     },
-  
-methods: {
-  addNewPost(newPostLabel) {
-  this.CarsItems.push({id:uniqueId('newpost-'), label: newPostLabel, done: false});
-},
-},
+    saveComment() {
+      // You can add logic related to saving comments here if needed.
+    },
+  },
 };
-
-
-
 </script>
 
 <style>
@@ -53,42 +51,18 @@ methods: {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
-  color: #2c3e50;
+  color: #ffffff;
   margin-top: 60px;
 }
 
   /* Global styles */
-  .btn {
-    padding: 0.8rem 1rem 0.7rem;
-    border: 0.2rem solid #4d4d4d;
-    cursor: pointer;
-    text-transform: capitalize;
-  }
-  .btn__danger {
-    color: #fff;
-    background-color: #ca3c3c;
-    border-color: #bd2130;
-  }
-  .btn__filter {
-    border-color: lightgrey;
-  }
-  .btn__danger:focus {
-    outline-color: #c82333;
-  }
-  .btn__primary {
-    color: #fff;
-    background-color: #000;
-  }
-  .btn-group {
-    display: flex;
-    justify-content: space-between;
-  }
-  .btn-group > * {
-    flex: 1 1 auto;
-  }
-  .btn-group > * + * {
-    margin-left: 0.8rem;
-  }
+  .dark {
+  background: #16171d; 
+  color: #fff;
+}
+
+  
+
   .label-wrapper {
     margin: 0;
     flex: 0 0 100%;
@@ -137,7 +111,7 @@ methods: {
   }
   /* End global styles */
   #app {
-    background: #fff;
+    background: #404040;
     margin: 2rem 0 4rem 0;
     padding: 1rem;
     padding-top: 0;
