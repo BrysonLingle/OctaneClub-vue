@@ -1,45 +1,40 @@
 <template>
-<div id="app">
-  <h1> Cars </h1>
-  <post-form @newpost-added="addNewPost"></post-form>
-    <li v-for="item in CarsItems" :key="item.id">
-      <cars-item 
-      :label="item.label" 
-      :done="item.done"
-      :id="item.id"></cars-item>
-    </li>
-</div>
-<p>Dark theme: {{isDark}}</p>
-
-<button @click="toggleDark()">
-  Toggle Color Mode
-</button>
-
+  <div id="app" >
+    <h1>Cars</h1>
+    <post-form @newpost-added="addNewPost"></post-form>
+  </div>
+  <button @click="toggleDark"
+  class="toggleMode">
+    Toggle Color Mode
+  </button>
+  <!-- <p>isDark: {{ isDark }}</p> -->
 </template>
 
 <script>
 import uniqueId from "lodash.uniqueid";
 import PostForm from "./components/NewPost.vue";
-import CarsItem from "./components/CarsItem.vue";
-
+import { useDark } from '@vueuse/core'
 
 export default {
   name: "app",
   components: {
-    CarsItem,
     PostForm,
   },
   data() {
     return {
-      CarsItems: [],
+      isDark: false, 
     };
   },
   methods: {
-    addNewPost(newPostLabel) {
-      this.CarsItems.push({ id: uniqueId("newpost-"), label: newPostLabel, done: false, comment: "" });
-    },
-    saveComment() {
-      // You can add logic related to saving comments here if needed.
+    toggleDark() {
+      this.isDark = !this.isDark;
+      if (this.isDark) {
+        document.body.classList.add('dark');
+        document.body.classList.remove('light'); 
+      } else {
+        document.body.classList.remove('dark');
+        document.body.classList.add('light'); 
+      }
     },
   },
 };
@@ -53,15 +48,29 @@ export default {
   text-align: center;
   color: #ffffff;
   margin-top: 60px;
+ 
 }
 
-  /* Global styles */
-  .dark {
-  background: #16171d; 
-  color: #fff;
+body.dark {
+  background-image: url("https://coolbackgrounds.io/images/backgrounds/index/compute-ea4c57a4.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-attachment: fixed;
 }
 
+body.light {
+  background-image: url("https://4kwallpapers.com/images/walls/thumbs_3t/8154.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-attachment: fixed;
+}
+.toggleMode {
   
+
+}
+
 
   .label-wrapper {
     margin: 0;
@@ -109,7 +118,7 @@ export default {
       margin-top: 2.8rem;
     }
   }
-  /* End global styles */
+  
   #app {
     background: #404040;
     margin: 2rem 0 4rem 0;

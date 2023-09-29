@@ -1,3 +1,6 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
 *,
 *::before,
@@ -43,7 +46,7 @@ body {
     Helvetica,
     Arial,
     sans-serif;
-  background-color: 	#FAF9F6;
+  background-color: 	#ffffff;
   color: #4d4d4d;
   -moz-osx-font-smoothing: grayscale;
   -webkit-font-smoothing: antialiased;
@@ -53,4 +56,10 @@ body {
     font-size: 1.9rem;
     line-height: 1.31579;
   }
+}
+p {
+    color: white;
+}
+.app {
+    color: yellow;
 }

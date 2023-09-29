@@ -6,7 +6,7 @@
   <div>
     <h3>Photos</h3>
     <div v-if="photoUrl">
-      <img :src="photoUrl" alt="Sportscar Photo" class="animate__animated animate__fadeIn" style="width: 400px; height: 500px;">
+      <img :src="photoUrl" alt="Sportscar Photo" class="animate__animated animate__fadeIn" style="width: 450px; height: 500px;">
     </div>
     <div v-else>
       <p>No photos found.</p>
@@ -78,7 +78,7 @@ button {
   border-radius: 1rem;
   border: none;
   position: relative;
-  background: #100720;
+  background: #48474b;
   transition: 0.1s;
 }
 
@@ -95,7 +95,7 @@ button:after {
 }
 
 button:active {
-  transform: scale(0.9) rotate(45deg);
+  transform: scale(0.9) rotate(25deg);
   background: radial-gradient(circle farthest-corner at 10% 20%, rgba(255,94,247,1) 17.8%, rgba(2,245,255,1) 100.2%);
   transition: 0.5s;
 }
