@@ -8,20 +8,20 @@
       Toggle Color Mode
     </button>
   </div>
-  <Footer></Footer> 
+  <FooterSection />
 </template>
 
 <script>
-import uniqueId from "lodash.uniqueid";
+// import uniqueId from "lodash.uniqueid";
 import PostForm from "./components/NewPost.vue";
-import { useDark } from '@vueuse/core'
-import Footer from "./components/Footer.vue"; 
+// import { useDark } from '@vueuse/core'
+import FooterSection from "./components/FooterSection.vue"; 
 
 export default {
   name: "app",
   components: {
     PostForm,
-    Footer, 
+    FooterSection, 
   },
   data() {
     return {
