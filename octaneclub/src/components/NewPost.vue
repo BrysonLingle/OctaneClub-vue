@@ -1,7 +1,5 @@
 <template>
   <div>
-    <!-- <button @click="login()">Login</button>
-<button @click="register()">Register</button> -->
   </div>
   <div>
     <h3>Photos</h3>
@@ -53,19 +51,7 @@ export default {
   },
 };
 
-// new Vue({
-//   methods: {
-//     login: function () {
-//       this.$auth.login({ email, password }).then(function () {       
-//       })
-//     },
 
-//     register: function () {
-//       this.$auth.register({ name, email, password }).then(function () {
-//       })
-//     }
-//   }
-// })
 </script>
 
 <style>
