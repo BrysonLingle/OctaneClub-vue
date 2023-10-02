@@ -1,6 +1,6 @@
 <template>
     <footer>
-      <p>This is the footer of my app.</p>
+      <p>Bryson Lingle GitHub:  <a href="https://github.com/BrysonLingle">click here</a>!</p>
     </footer>
   </template>
   
