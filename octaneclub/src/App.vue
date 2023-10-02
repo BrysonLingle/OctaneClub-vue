@@ -12,9 +12,9 @@
 </template>
 
 <script>
-// import uniqueId from "lodash.uniqueid";
+
 import PostForm from "./components/NewPost.vue";
-// import { useDark } from '@vueuse/core'
+
 import FooterSection from "./components/FooterSection.vue"; 
 
 export default {
